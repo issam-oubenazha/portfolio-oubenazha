@@ -1,0 +1,228 @@
+/* skills */
+
+.scroll {
+    position: relative;
+    display: flex;
+    width: 700px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #fff 20%, #fff 80%, transparent);
+    margin: 10px auto;
+    min-height: 40px;
+}
+
+/* Responsive breakpoints for scroll container */
+@media screen and (max-width: 768px) {
+    .scroll {
+        width: 90vw;
+        max-width: 500px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .scroll {
+        width: 85vw;
+        max-width: 400px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .scroll {
+        width: 90vw;
+        max-width: 350px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .scroll {
+        width: 92vw;
+        max-width: 320px;
+        margin: 8px auto;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .scroll {
+        width: 95vw;
+        max-width: 300px;
+        margin: 6px auto;
+    }
+}
+
+/* Custom scrollbar for project modal */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.5);
+    border-radius: 2px;
+    transition: background 0.2s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 92, 246, 0.7);
+}
+
+
+.scroll div {
+    white-space: nowrap;
+    animation: scroll var(--time) linear infinite;
+    animation-delay: calc(var(--time)*-1);
+
+}
+
+.scroll div:nth-child(2) {
+    animation: scroll2 var(--time) linear infinite;
+    animation-delay: calc(var(--time)/-2);
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(100%);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes scroll2 {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-200%);
+    }
+}
+
+.scroll div span {
+    display: inline-flex;
+    margin: 10px;
+    letter-spacing: 0.2em;
+    background: #333;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: 0.5s;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+/* Responsive font sizes and spacing for spans */
+@media screen and (max-width: 768px) {
+    .scroll div span {
+        font-size: 13px;
+        padding: 4px 8px;
+        margin: 8px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .scroll div span {
+        font-size: 12px;
+        padding: 3px 6px;
+        margin: 6px;
+        letter-spacing: 0.1em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .scroll div span {
+        font-size: 11px;
+        padding: 3px 5px;
+        margin: 5px;
+        letter-spacing: 0.05em;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .scroll div span {
+        font-size: 10px;
+        padding: 2px 4px;
+        margin: 4px;
+    }
+}
+
+.scroll div span:hover {
+    background: #6432c7;
+    cursor: pointer;
+}
+
+.imgBox div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.imgBox img {
+    max-width: 60px;
+    min-width: 40px;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.imgBox img:hover {
+    transform: scale(1.05);
+    filter: brightness(1.1);
+}
+
+/* Responsive image sizing */
+@media screen and (max-width: 768px) {
+    .imgBox div {
+        gap: 10px;
+    }
+    .imgBox img {
+        max-width: 50px;
+        min-width: 35px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .imgBox div {
+        gap: 8px;
+    }
+    .imgBox img {
+        max-width: 45px;
+        min-width: 30px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .imgBox div {
+        gap: 6px;
+    }
+    .imgBox img {
+        max-width: 40px;
+        min-width: 28px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .imgBox div {
+        gap: 5px;
+    }
+    .imgBox img {
+        max-width: 35px;
+        min-width: 25px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .imgBox div {
+        gap: 4px;
+    }
+    .imgBox img {
+        max-width: 30px;
+        min-width: 22px;
+    }
+}
