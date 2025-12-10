@@ -77,18 +77,18 @@ export default function Home() {
   }, []);
 
   return (
-    <section id="home" className="relative w-screen h-screen overflow-hidden bg-yellow-100">
+    <section id="home" className="relative w-screen h-screen overflow-hidden bg-gradient-to-b from-green-900 to-blue-950">
       <div id="tsparticles" className="absolute inset-0" />
       
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="text-white text-center z-10 animate-fadeIn px-4">
-          <h3 className="text-xl md:text-2xl mb-4 animate-slideDown text-purple-200 drop-shadow-lg">
+        <div className="text-emerald-100 text-center z-10 animate-fadeIn px-4">
+          <h3 className="text-xl md:text-2xl mb-4 animate-slideDown text-cyan-400 drop-shadow-lg">
             Hello, I&apos;m
           </h3>
-          <h1 className="text-6xl md:text-7xl font-bold mb-4 animate-slideUp bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-purple-600 to-purple-800 drop-shadow-lg">
+          <h1 className="text-6xl md:text-7xl font-bold mb-4 animate-slideUp bg-clip-text text-transparent bg-gradient-to-r from-cyan-400 via-emerald-400 to-cyan-600 drop-shadow-lg">
             Issam Oubenazha
           </h1>
-          <div className="text-xl md:text-2xl mb-8 animate-slideDown text-purple-100 h-20">
+          <div className="text-xl md:text-2xl mb-8 animate-slideDown text-emerald-200 h-20">
             <TypewriterComponent
               options={{
                 strings: [
@@ -106,9 +106,8 @@ export default function Home() {
           
           <div className="flex flex-col md:flex-row gap-4 md:gap-6 justify-center items-center animate-fadeIn delay-500">
             <a 
-              href="./cv/Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="/cv/Issam_Oubenazha_CV.pdf"
+              download
               className="w-48 inline-flex justify-center items-center bg-transparent backdrop-blur-sm border-2 border-purple-500 rounded-full text-purple-100 px-8 py-3.5 font-medium hover:bg-purple-500/20 hover:border-purple-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-purple-500/25 relative overflow-hidden group text-base md:text-lg"
             >
               <span className="relative z-10">Download CV</span>
