@@ -5,7 +5,7 @@ type StyleWithVar = React.CSSProperties & { '--time': string };
 
 export default function Skills() {
   return (
-    <section className="w-screen text-center p-4 sm:p-6 md:p-10 bg-gradient-to-b from-green-900 to-blue-950 min-h-screen flex flex-col items-center justify-center relative overflow-hidden" id="skills">
+    <section className="w-screen text-center p-4 sm:p-6 md:p-10 min-h-screen flex flex-col items-center justify-center relative overflow-hidden" id="skills">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-emerald-500/10 rounded-full blur-3xl"></div>

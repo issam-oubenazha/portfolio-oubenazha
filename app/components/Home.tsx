@@ -77,9 +77,7 @@ export default function Home() {
   }, []);
 
   return (
-    <section id="home" className="relative w-screen h-screen overflow-hidden bg-gradient-to-b from-green-900 to-blue-950">
-      <div id="tsparticles" className="absolute inset-0" />
-      
+    <section id="home" className="relative w-screen h-screen overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="text-emerald-100 text-center z-10 animate-fadeIn px-4">
           <h3 className="text-xl md:text-2xl mb-4 animate-slideDown text-cyan-400 drop-shadow-lg">
