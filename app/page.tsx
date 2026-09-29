@@ -8,18 +8,22 @@ import Footer from './components/Footer';
 
 export default function Page() {
   return (
-    <div>
-      <Nav />
+    <div className="relative min-h-screen">
+      <div id="tsparticles" className="fixed inset-0 z-0 pointer-events-none" />
 
-      <main className="w-full">
-        <HomePage />
-        <About />
-        <Skills />
-        {/* <Projects /> */}
-        <Contact />
-      </main>
-      
-      <Footer />
+      <div className="relative z-10">
+        <Nav />
+
+        <main className="w-full">
+          <HomePage />
+          <About />
+          <Skills />
+          {/* <Projects /> */}
+          <Contact />
+        </main>
+        
+        <Footer />
+      </div>
     </div>
   );
 }

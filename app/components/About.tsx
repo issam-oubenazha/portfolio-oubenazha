@@ -1,15 +1,10 @@
 import React from 'react';
 import Image from 'next/image';
-import { tsParticles } from "@tsparticles/engine";
-import { loadSlim } from "@tsparticles/slim";
 
 export default function About() {
 
   return (
-    <section className="w-full text-center py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-green-900 to-blue-950 min-h-screen flex items-center relative overflow-hidden" id="about">
-      {/* particles background (behind content) */}
-      <div id="tsparticles-about" className="absolute inset-0" />
-
+    <section className="w-full text-center py-20 px-4 sm:px-6 lg:px-8 min-h-screen flex items-center relative overflow-hidden" id="about">
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <h3 className="text-lg font-bold text-cyan-400 animate-fadeInUp">My Introduction</h3>
         <h2 className="text-4xl md:text-5xl font-bold gradient-text mt-2 animate-fadeInUp" style={{ animationDelay: '0.2s' }}>About Me</h2>
@@ -20,7 +15,7 @@ export default function About() {
               <div className="relative group">
                 <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-emerald-600 rounded-full blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-glow"></div>
                 <Image
-                  src="/images/photo de CV.jpg"
+                  src="/images/Gemini_Generated_Image_rel34arel34arel3.jfif"
                   className="relative rounded-full h-80 w-80 object-cover shadow-2xl"
                   alt="Issam Oubenazha - Full Stack & AI Developer"
                   width={320}
@@ -43,7 +38,7 @@ export default function About() {
               <div className="glass-effect border-l-4 border-l-emerald-500 p-6 rounded-xl hover:bg-gray-700/50 transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-emerald-500/50 animate-glow group cursor-pointer" style={{ animationDelay: '0.2s' }}>
                 <i className="fas fa-briefcase text-emerald-400 text-3xl mb-3 group-hover:animate-bounce"></i>
                 <h3 className="font-bold text-lg text-emerald-100">Projects</h3>
-                <span className="text-cyan-300 font-semibold text-lg">10+ Done</span>
+                <span className="text-cyan-300 font-semibold text-lg">9 Done</span>
               </div>
 
               <div className="glass-effect border-l-4 border-l-cyan-500 p-6 rounded-xl hover:bg-gray-700/50 transition-all duration-300 transform hover:scale-110 shadow-lg hover:shadow-cyan-500/50 animate-glow group cursor-pointer" style={{ animationDelay: '0.4s' }}>
