@@ -17,7 +17,7 @@ export const projects: Project[] = [
         technologies: ["PHP", "Next.js", "Tailwind CSS", "REST API", "MySQL", "JavaScript", "HTML5", "CSS3"],
         category: "cybersecurity",
         liveLink: "https://scan.cyberxradar.com/",
-        githubLink: "https://github.com/Mohamedsellak/cyber-x-radar",
+        githubLink: "https://github.com/issam-oubenazha",
         images: [
             "/cyberxradar/1.png",
             "/cyberxradar/2.png",
@@ -49,7 +49,7 @@ export const projects: Project[] = [
             technologies: ["Next.js", "Node.js", "Express.js", "Tailwind CSS", "MongoDB", "Linux pentest tools", "LLaMA 3", "AI/ML"],
             category: "cybersecurity",
             liveLink: "https://pentestgpt.com",
-            githubLink: "https://github.com/Mohamedsellak/Pentest-Tools-Client",
+            githubLink: "https://github.com/issam-oubenazha",
             images: [
                 "/pentest/1.png",
                 "/pentest/2.png",
@@ -79,7 +79,7 @@ export const projects: Project[] = [
         technologies: ["Laravel", "PHP", "MathJax", "LaTeX", "MathType", "MySQL", "JavaScript", "Tailwind CSS"],
         category: "ai",
         liveLink: "https://edufacilita.com.br",
-        githubLink: "https://github.com/Mohamedsellak/Edufacilita",
+        githubLink: "https://github.com/issam-oubenazha",
         images: [
             "/Edufacilita/1.png",
             "/Edufacilita/2.png",
@@ -105,7 +105,7 @@ export const projects: Project[] = [
         technologies: ["Swift", "iOS SDK", "Core ML", "Vision API", "Speech Recognition", "Google Translate API"],
         category: "mobile",
         liveLink: "https://apps.apple.com/us/app/ai-translator-go-translate/id6747006001",
-        githubLink: "https://github.com/Mohamedsellak/Ai-Translation",
+        githubLink: "https://github.com/issam-oubenazha",
         images: [
             "/ai translate/1.png",
             "/ai translate/2.png",
@@ -121,7 +121,7 @@ export const projects: Project[] = [
         description: "Professional cryptocurrency and stock trading platform with real-time market data, advanced charting tools, portfolio management, and automated trading strategies. Features secure transactions, multi-wallet support, and comprehensive analytics dashboard.",
         technologies: ["Next.js", "TypeScript", "Node.js", "WebSocket", "MongoDB", "Redis", "Chart.js", "Crypto Payment API"],
         category: "web",
-        githubLink: "https://github.com/Mohamedsellak/webTrade-client",
+        githubLink: "https://github.com/issam-oubenazha",
         images: [
             "/nextTrade/1..png",
             "/nextTrade/2.png",
@@ -150,7 +150,7 @@ export const projects: Project[] = [
         technologies: ["Next.js", "TypeScript", "Tailwind CSS", "Stripe", "MongoDB", "Node.js"],
         category: "web",
         liveLink: "https://mr-basit.netlify.app/",
-        githubLink: "https://github.com/Mohamedsellak/mr-basit",
+        githubLink: "https://github.com/issam-oubenazha",
         images: [
             "/mr-basit/1.png",
             "/mr-basit/2.png",
@@ -166,7 +166,7 @@ export const projects: Project[] = [
         technologies: ["Next.js", "Supabase", "PostgreSQL", "Tailwind CSS", "TypeScript", "Stripe API"], 
         category: "web",
         liveLink: "https://teechstore.netlify.app/",
-        githubLink: "https://github.com/Mohamedsellak/COD-Store",
+        githubLink: "https://github.com/issam-oubenazha",
         images: [
             "/tech store/1.png",
             "/tech store/2.png",
