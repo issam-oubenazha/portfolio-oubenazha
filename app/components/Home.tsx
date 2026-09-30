@@ -104,7 +104,7 @@ export default function Home() {
           
           <div className="flex flex-col md:flex-row gap-4 md:gap-6 justify-center items-center animate-fadeIn delay-500">
             <a 
-              href="/cv/Issam_Oubenazha_CV.pdf"
+              href="/cv/oubenazha.issam.pdf"
               download
               className="w-48 inline-flex justify-center items-center bg-transparent backdrop-blur-sm border-2 border-purple-500 rounded-full text-purple-100 px-8 py-3.5 font-medium hover:bg-purple-500/20 hover:border-purple-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-purple-400 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1 shadow-lg hover:shadow-purple-500/25 relative overflow-hidden group text-base md:text-lg"
             >
