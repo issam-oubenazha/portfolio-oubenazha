@@ -15,7 +15,6 @@ import './TerminalMode.css';
 type TerminalEntry = {
   id: number;
   command: string;
-  directory: string;
   output?: ReactNode;
 };
 
@@ -24,62 +23,19 @@ type TerminalModeProps = {
 };
 
 const commandHelp = [
-  ['cd', 'Change directory'],
-  ['help', 'Show available commands'],
-  ['about', 'About me'],
-  ['projects', 'Show my projects'],
-  ['skills', 'Show my technical skills'],
-  ['experience', 'Show my experience'],
-  ['education', 'Show my education'],
-  ['contact', 'Show contact information'],
-  ['clear', 'Clear terminal'],
-  ['exit', 'Return to normal portfolio'],
+  ['cd help', 'Show available commands'],
+  ['cd about', 'About me'],
+  ['cd projects', 'Show my projects'],
+  ['cd skills', 'Show my technical skills'],
+  ['cd experience', 'Show my experience'],
+  ['cd education', 'Show my education'],
+  ['cd contact', 'Show contact information'],
+  ['cd clear', 'Clear terminal'],
+  ['cd exit', 'Return to normal portfolio'],
 ];
-
-const terminalDirectories = new Set([
-  '/',
-  '/home',
-  '/home/issam',
-  '/home/issam/about',
-  '/home/issam/projects',
-  '/home/issam/skills',
-  '/home/issam/experience',
-  '/home/issam/education',
-  '/home/issam/contact',
-]);
-
-function resolveDirectory(currentDirectory: string, destination?: string) {
-  const requestedPath = destination || '/home/issam';
-  const segments = requestedPath.startsWith('/') || requestedPath.startsWith('~')
-    ? []
-    : currentDirectory.split('/').filter(Boolean);
-  const pathSegments = requestedPath.startsWith('~')
-    ? ['home', 'issam', ...requestedPath.slice(1).split('/').filter(Boolean)]
-    : requestedPath.split('/').filter(Boolean);
-
-  for (const segment of pathSegments) {
-    if (segment === '.' || segment === '~') continue;
-    if (segment === '..') {
-      segments.pop();
-    } else {
-      segments.push(segment);
-    }
-  }
-
-  return `/${segments.join('/')}`;
-}
-
-function formatDirectory(directory: string) {
-  if (directory === '/home/issam') return '~';
-  if (directory.startsWith('/home/issam/')) {
-    return `~/${directory.slice('/home/issam/'.length)}`;
-  }
-  return directory;
-}
 
 function Terminal() {
   const [entries, setEntries] = useState<TerminalEntry[]>([]);
-  const [currentDirectory, setCurrentDirectory] = useState('/home/issam');
   const [command, setCommand] = useState('');
   const [history, setHistory] = useState<string[]>([]);
   const [historyIndex, setHistoryIndex] = useState(-1);
@@ -183,24 +139,10 @@ function Terminal() {
     ),
   };
 
-  const executeChangeDirectory = (args: string[]) => {
-    if (args.length > 1) {
-      return 'cd: too many arguments';
-    }
-
-    const destination = resolveDirectory(currentDirectory, args[0]);
-    if (!terminalDirectories.has(destination)) {
-      return `cd: no such directory: ${args[0]}`;
-    }
-
-    setCurrentDirectory(destination);
-    return undefined;
-  };
-
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const enteredCommand = command.trim().toLowerCase();
-    const [commandName, ...args] = enteredCommand.split(/\s+/);
+    const [prefix, commandName, ...args] = enteredCommand.split(/\s+/);
     setCommand('');
     setHistoryIndex(-1);
     setHistoryDraft('');
@@ -210,30 +152,30 @@ function Terminal() {
       return;
     }
 
-    if (enteredCommand === 'clear') {
+    let output: ReactNode;
+    if (prefix !== 'cd') {
+      output = <>Command not found.<br />Type &quot;cd help&quot; to see available commands.</>;
+    } else if (!commandName) {
+      output = <>Usage: cd &lt;command&gt;<br />Type &quot;cd help&quot; to see available commands.</>;
+    } else if (args.length > 0 || !commandHandlers[commandName]) {
+      output = <>Command not found.<br />Type &quot;cd help&quot; to see available commands.</>;
+    } else if (commandName === 'clear') {
       setEntries([]);
       setHistory((currentHistory) => [...currentHistory, enteredCommand]);
       inputRef.current?.focus();
       return;
-    }
-
-    if (enteredCommand === 'exit') {
+    } else if (commandName === 'exit') {
       window.dispatchEvent(new CustomEvent('portfolio:exit-terminal'));
       return;
+    } else {
+      output = commandHandlers[commandName]();
     }
-
-    const output = commandName === 'cd'
-      ? executeChangeDirectory(args)
-      : commandHandlers[commandName]
-        ? commandHandlers[commandName]()
-        : 'Command not found. Type "help" to see available commands.';
 
     setEntries((currentEntries) => [
       ...currentEntries,
       {
         id: nextEntryId.current++,
         command: enteredCommand,
-        directory: formatDirectory(currentDirectory),
         output,
       },
     ]);
@@ -289,12 +231,12 @@ function Terminal() {
           <p className="terminal-welcome">
             Welcome to Issam&apos;s portfolio terminal.
             <br />
-            Type <code>help</code> to see the available commands.
+            Type <code>cd help</code> to see the available commands.
           </p>
           {entries.map((entry) => (
             <div className="terminal-entry" key={entry.id}>
               <div className="terminal-command-line">
-                <span className="terminal-prompt">issam@portfolio:{entry.directory}$</span>
+                <span className="terminal-prompt">issam@portfolio:~$</span>
                 <span>{entry.command}</span>
               </div>
               {entry.output && <div className="terminal-result">{entry.output}</div>}
@@ -304,7 +246,7 @@ function Terminal() {
 
         <form className="terminal-input-line" onSubmit={handleSubmit}>
           <label className="terminal-prompt" htmlFor="terminal-command">
-            issam@portfolio:{formatDirectory(currentDirectory)}$
+            issam@portfolio:~$
           </label>
           <input
             autoComplete="off"

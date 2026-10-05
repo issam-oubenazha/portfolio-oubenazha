@@ -51,12 +51,12 @@ export const projects: Project[] = [
         liveLink: "https://teechstore.netlify.app/",
         githubLink: "https://github.com/issam-oubenazha/Gestion-de-Stock",
         images: [
-            "/tech store/1.png",
-            "/tech store/2.png",
-            "/tech store/3.png",
-            "/tech store/4.png",
-            "/tech store/5.png",
-            "/tech store/6.png"
+            "/Agristock/1.png",
+            "/Agristock/2.png",
+            "/Agristock/3.png",
+            "/Agristock/4.png",
+            "/Agristock/5.png",
+            "/Agristock/6.png"
         ]
     }
 ];
