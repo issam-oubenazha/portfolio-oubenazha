@@ -213,7 +213,7 @@
 
 .terminal-help-row {
   display: grid;
-  grid-template-columns: 7rem 0.75rem minmax(0, 1fr);
+  grid-template-columns: 8.5rem 0.75rem minmax(0, 1fr);
   gap: 0.5rem;
 }
 
@@ -326,7 +326,7 @@
   }
 
   .terminal-help-row {
-    grid-template-columns: 5.5rem 0.75rem minmax(0, 1fr);
+    grid-template-columns: 7.5rem 0.75rem minmax(0, 1fr);
     gap: 0.5rem;
   }
 
