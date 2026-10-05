@@ -211,6 +211,10 @@
   gap: 0.35rem;
 }
 
+.terminal-help-gap {
+  height: 0.45rem;
+}
+
 .terminal-help-row {
   display: grid;
   grid-template-columns: 8.5rem 0.75rem minmax(0, 1fr);

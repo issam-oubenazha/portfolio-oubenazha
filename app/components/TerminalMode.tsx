@@ -30,8 +30,11 @@ const commandHelp = [
   ['cd experience', 'Show my experience'],
   ['cd education', 'Show my education'],
   ['cd contact', 'Show contact information'],
-  ['cd clear', 'Clear terminal'],
-  ['cd exit', 'Return to normal portfolio'],
+];
+
+const directCommandHelp = [
+  ['clear', 'Clear terminal'],
+  ['exit', 'Return to normal portfolio'],
 ];
 
 function Terminal() {
@@ -57,6 +60,14 @@ function Terminal() {
       <div className="terminal-help">
         <p className="terminal-muted">Available commands:</p>
         {commandHelp.map(([name, description]) => (
+          <div className="terminal-help-row" key={name}>
+            <code>{name}</code>
+            <span className="terminal-muted" aria-hidden="true">→</span>
+            <span>{description}</span>
+          </div>
+        ))}
+        <div className="terminal-help-gap" aria-hidden="true" />
+        {directCommandHelp.map(([name, description]) => (
           <div className="terminal-help-row" key={name}>
             <code>{name}</code>
             <span className="terminal-muted" aria-hidden="true">→</span>
@@ -142,7 +153,6 @@ function Terminal() {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const enteredCommand = command.trim().toLowerCase();
-    const [prefix, commandName, ...args] = enteredCommand.split(/\s+/);
     setCommand('');
     setHistoryIndex(-1);
     setHistoryDraft('');
@@ -153,22 +163,25 @@ function Terminal() {
     }
 
     let output: ReactNode;
-    if (prefix !== 'cd') {
-      output = <>Command not found.<br />Type &quot;cd help&quot; to see available commands.</>;
-    } else if (!commandName) {
-      output = <>Usage: cd &lt;command&gt;<br />Type &quot;cd help&quot; to see available commands.</>;
-    } else if (args.length > 0 || !commandHandlers[commandName]) {
-      output = <>Command not found.<br />Type &quot;cd help&quot; to see available commands.</>;
-    } else if (commandName === 'clear') {
+    if (enteredCommand === 'clear') {
       setEntries([]);
       setHistory((currentHistory) => [...currentHistory, enteredCommand]);
       inputRef.current?.focus();
       return;
-    } else if (commandName === 'exit') {
+    } else if (enteredCommand === 'exit') {
       window.dispatchEvent(new CustomEvent('portfolio:exit-terminal'));
       return;
+    } else if (enteredCommand === 'cd') {
+      output = <>Usage: cd &lt;command&gt;<br />Type &quot;cd help&quot; to see available commands.</>;
+    } else if (!enteredCommand.startsWith('cd ')) {
+      output = <>Command not found.<br />Type &quot;cd help&quot; to see available commands.</>;
     } else {
-      output = commandHandlers[commandName]();
+      const [commandName, ...args] = enteredCommand.slice(3).trim().split(/\s+/);
+      if (!commandName || args.length > 0 || !commandHandlers[commandName]) {
+        output = <>Command not found.<br />Type &quot;cd help&quot; to see available commands.</>;
+      } else {
+        output = commandHandlers[commandName]();
+      }
     }
 
     setEntries((currentEntries) => [
