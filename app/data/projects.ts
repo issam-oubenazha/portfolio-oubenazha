@@ -48,15 +48,21 @@ export const projects: Project[] = [
         description: "Sophisticated French e-commerce platform specializing in premium technology products. Serves 50,000+ satisfied customers across 15+ countries with 24/7 support. Features advanced product filtering, AR product visualization, and comprehensive customer service system.",
         technologies: ["Python", "Mysql", "Tailwind CSS"], 
         category: "web",
-        liveLink: "https://teechstore.netlify.app/",
+        liveLink: "https:/",
         githubLink: "https://github.com/issam-oubenazha/Gestion-de-Stock",
         images: [
-            "/Agristock/1.png",
-            "/Agristock/2.png",
-            "/Agristock/3.png",
-            "/Agristock/4.png",
-            "/Agristock/5.png",
-            "/Agristock/6.png"
+            "/Agristock/agristock0.png",
+            "/Agristock/agristock1.png",
+            "/Agristock/agristock2.png",
+            "/Agristock/agristock3.png",
+            "/Agristock/agristock4.png",
+            "/Agristock/agristock5.png",
+            "/Agristock/agristock6.png",
+            "/Agristock/agristock7.png",
+            "/Agristock/agristock8.png",
+            "/Agristock/agristock9.png",
+            "/Agristock/agristock10.png",
+            "/Agristock/facture.png"
         ]
     }
 ];
