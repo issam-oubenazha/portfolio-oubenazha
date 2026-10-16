@@ -3,7 +3,7 @@ export interface Project {
     title: string;
     description: string;
     technologies: string[];
-    category: 'web' | 'mobile' | 'design' | 'ai' | 'cybersecurity';
+    category: 'web' | 'mobile' | 'Desktop Application' | 'ai' | 'cybersecurity';
     liveLink?: string;
     githubLink?: string;
     images: string[];
@@ -12,42 +12,31 @@ export interface Project {
 export const projects: Project[] = [
     {
         id: 1,
-        title: "Cyber X Radar – Advanced Threat Detection Platform",
-        description: "A comprehensive real-time cybersecurity platform that monitors dark web activities, data breaches, and vulnerabilities. Provides complete digital risk visibility for organizations with advanced threat intelligence and automated incident response capabilities.",
-        technologies: ["PHP", "Next.js", "Tailwind CSS", "REST API", "MySQL", "JavaScript", "HTML5", "CSS3"],
-        category: "cybersecurity",
-        liveLink: "https://scan.cyberxradar.com/",
-        githubLink: "https://github.com/issam-oubenazha",
+        title: "9biya Store – Boutique en ligne",
+        description: "9biya Store est un projet de boutique en ligne conçu pour offrir une expérience d’achat simple, moderne et intuitive. La plateforme permet aux utilisateurs de découvrir les produits, de consulter leurs détails et de naviguer facilement entre les différentes sections du site.",
+        technologies: ["JavaScript", "Vue", "Tailwind CSS", "HTML"],
+        category: "web",
+        liveLink: "https://",
+        githubLink: "https://github.com/issam-oubenazha/9biya-store",
         images: [
-            "/cyberxradar/1.png",
-            "/cyberxradar/2.png",
-            "/cyberxradar/3.png",
-            "/cyberxradar/4.png",
-            "/cyberxradar/5.png",
-            "/cyberxradar/6.png",
-            "/cyberxradar/7.png",
-            "/cyberxradar/8.png",
-            "/cyberxradar/9.png",
-            "/cyberxradar/10.png",
-            "/cyberxradar/11.png",
-            "/cyberxradar/12.png",
-            "/cyberxradar/13.png",
-            "/cyberxradar/14.png",
-            "/cyberxradar/15.png",
-            "/cyberxradar/16.png",
-            "/cyberxradar/17.png",
-            "/cyberxradar/18.png",
-            "/cyberxradar/19.png",
-            "/cyberxradar/20.png"
+            "/9biya-store/qbiya1.png",
+            "/9biya-store/qbiya2.png",
+            "/9biya-store/qbiya3.png",
+            "/9biya-store/qbiya4.png",
+            "/9biya-store/qbiya5.png",
+            "/9biya-store/qbiya6.png",
+            "/9biya-store/qbiya7.png",
+            "/9biya-store/qbiya8.png",
+            "/9biya-store/qbiya9.png"
         ]
     },
 
     {
         id: 2,
-        title: "Gestion Stock - Premium Technology Marketplace",
-        description: "Sophisticated French e-commerce platform specializing in premium technology products. Serves 50,000+ satisfied customers across 15+ countries with 24/7 support. Features advanced product filtering, AR product visualization, and comprehensive customer service system.",
-        technologies: ["Python", "Mysql", "Tailwind CSS"], 
-        category: "web",
+        title: "Agri_Stock - Agricultural Stock Management System",
+        description: "Agri_Stock is a desktop application designed to simplify agricultural inventory management. Built with Python, Tkinter, and MySQL, it helps users organize and manage agricultural products efficiently through a user-friendly interface",
+        technologies: ["Python", "Mysql", "html","PowerShell","Batch file","Tkinter"], 
+        category: "Desktop Application",
         liveLink: "https:/",
         githubLink: "https://github.com/issam-oubenazha/Gestion-de-Stock",
         images: [
