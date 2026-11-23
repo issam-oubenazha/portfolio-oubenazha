@@ -3,7 +3,32 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
     try {
-        const { name, email, message, website } = await request.json();
+        let body: unknown;
+
+        try {
+            body = await request.json();
+        } catch {
+            return NextResponse.json(
+                { error: "Please submit a valid message." },
+                { status: 400 }
+            );
+        }
+
+        if (typeof body !== "object" || body === null) {
+            return NextResponse.json(
+                { error: "Please submit a valid message." },
+                { status: 400 }
+            );
+        }
+
+        const {
+            name,
+            email,
+            subject,
+            service,
+            message,
+            website,
+        } = body as Record<string, unknown>;
 
         // Anti-spam honeypot
         if (website) {
@@ -14,9 +39,13 @@ export async function POST(request: Request) {
         if (
             typeof name !== "string" ||
             typeof email !== "string" ||
+            typeof subject !== "string" ||
+            typeof service !== "string" ||
             typeof message !== "string" ||
             !name.trim() ||
             !email.trim() ||
+            !subject.trim() ||
+            !service.trim() ||
             !message.trim()
         ) {
             return NextResponse.json(
@@ -28,8 +57,15 @@ export async function POST(request: Request) {
         if (
             name.length > 100 ||
             email.length > 254 ||
+            subject.length > 150 ||
             message.length > 2000 ||
-            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+            !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()) ||
+            ![
+                "Web development",
+                "AI & data science",
+                "Full-stack application",
+                "Something else",
+            ].includes(service)
         ) {
             return NextResponse.json(
                 { error: "Please check your information." },
@@ -73,6 +109,14 @@ export async function POST(request: Request) {
                             {
                                 type: "plain_text",
                                 text: `Email:\n${email.trim()}`,
+                            },
+                            {
+                                type: "plain_text",
+                                text: `Subject:\n${subject.trim()}`,
+                            },
+                            {
+                                type: "plain_text",
+                                text: `Service:\n${service}`,
                             },
                         ],
                     },
